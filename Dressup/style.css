@@ -1,0 +1,75 @@
+@font-face {
+  font-family: Title;
+  src: url(Assets/EmilysCandy-Regular.ttf);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to right, rgba(255,255,255, 0.7) 0 100%),url(images/background.jpg);
+  font-family: Title;
+  font-size: larger;
+  font-weight: bold;
+  color: rgb(218, 59, 152);
+}
+
+canvas {
+  display: block;
+  border: 5px dashed purple;
+}
+
+#banner{
+  position: relative;
+  z-index: 10;
+  width:60.66666667%;
+  margin:10px auto;
+  margin-bottom: 30px;
+}
+
+#banner a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+#banner img {
+  display:block;
+  width: 100%;
+  height: 150px;
+}
+
+#header{
+  text-align: center;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 200vh; /* Ensure parent container has sufficient height */
+  overflow: visible; /* Ensure sticky positioning works */
+}
+
+#ad {
+  width: 16.66%;
+  position: sticky;
+  top: 120px; /* Sticky offset from the top */
+   bottom: 120px;
+  margin: 0 2%;
+}
+
+#ad img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+}
+
+#game-container {
+  background-color: rgb(255, 225, 230);
+  border-radius: 5%;
+  /* display: flex; *
+  justify-content: center;
+  align-items: flex-start; */
+  width: 66.66666667%;
+  margin-bottom: 50px;
+}

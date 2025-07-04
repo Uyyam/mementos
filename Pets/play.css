@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #4CAF50; /* Green banner */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 24px;
+}
+
+#pet-container {
+    flex: 1; /* Takes up the remaining space */
+    display: flex;
+    transform: translateX(-400px);
+    justify-content: center;
+    align-items: center;
+}
+
+#pet {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    animation: moveHorizontally 20s infinite ease-in-out;
+}
+
+#button-container {
+    height: 20%; /* Bottom 20% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #f1f1f1; /* Light gray background */
+    border-top: 2px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Green buttons */
+    color: white;
+}
+
+button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+#popup {
+    position: absolute;
+bottom: 10%; /* Adjust to position above the button */
+    background-color: white;
+    color: black;
+    padding: 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transform: translateY(-100%); /* Position above the button */
+    left: 55%; /* Center horizontally relative to the button */
+    transform: translate(-50%, -100%); /* Adjust position */
+    display:flex;
+}
+
+@keyframes moveHorizontally {
+    0% {
+        transform: translateX(-25%);
+    }
+    50% {
+        transform: translateX(1000px); /* Random distance */
+    }
+    100% {
+        transform: translateX(-25%);
+    }
+}
+
+.dog1 {
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    /* background-image:url(images/dog1.jpg); */
+}
+
+.cat1 {
+    width: 200px;
+    height: 200px;
+    background-color: lightcoral;
+    /* background-image:url(images/cat1.jpg); */
+}
+
+.cat2 {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    /* background-image:url(images/cat2.jpg); */
+}
+
+.cat3 {
+    width: 200px;
+    height: 200px;
+    background-color: lightgreen;
+    /* background-image:url(images/cat3.jpg); */
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body onload="reset()">
+    <main>
+    </main>
+    <div id="pet-selection">
+        Chose a Type of Pet:<br><br>
+    <button id="Dog" onclick="setPet('Dog')">Dog</button>
+    <button id="Cat" onclick="setPet('Cat')">Cat</button>
+    </div>
+    <div id="chose-pet" style="display:none;">
+        <div id="petType"></div>
+        
+    <div id="scroll">
+        <div id="pet"></div>
+        <input type="button" id="next" value="Next" onclick="next()">   
+    </div>
+    <input type="button" id="select" value="Confirm" onclick="selectPet()">
+    <form onsubmit="submitPet(event)">
+        <input type="text" id="petName" placeholder="Enter Pet Name" style="display: none;">
+    </form>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,66 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    text-align: center;
+}
+
+#pet-selection, #chose-pet {
+    text-align: center;
+}
+
+#chose-pet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+#scroll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* position: relative; */
+}
+
+#next {
+    order: 2;
+    /* position: absolute;
+    left: -120px; Adjust this value as needed */
+}
+
+.dog1 {
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    /* background-image:url(images/dog1.jpg); */
+}
+
+.cat1 {
+    width: 200px;
+    height: 200px;
+    background-color: lightcoral;
+    /* background-image:url(images/cat1.jpg); */
+}
+
+.cat2 {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    /* background-image:url(images/cat2.jpg); */
+}
+
+.cat3 {
+    width: 200px;
+    height: 200px;
+    background-color: lightgreen;
+    /* background-image:url(images/cat3.jpg); */
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play</title>
+    <link rel="stylesheet" href="play.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body onload="playTime()">
+    <header id="petName"></header>
+    <div id="pet-container">
+        <div id="pet"></div>
+    </div>
+    <div id="button-container">
+        <button onclick="feedPet()">Feed</button>
+        <button onclick="playWith()">Play</button>
+        <div id="walk-container" style="display: none;">
+            <div id="popup" style="display: none;">
+                <button onclick="setWalk()">*Go For A Walk*</button>
+                <button onclick="closePopup()">*Stay Inside*</button>
+            </div>
+            <button id="walk" onclick="walkPet()">Walk</button>
+        </div>
+    </div>
+  </body>
+</html>
