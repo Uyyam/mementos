@@ -13,6 +13,22 @@ html, body {
   color: rgb(218, 59, 152);
 }
 
+#topnav {
+  overflow: hidden;
+  background-color: #0044ff;
+  box-shadow: 2px 2px black;
+  position:sticky;
+  top:0;
+  z-index: 10000;
+}
+
+#nav{
+  overflow: hidden;
+  background-color: #d3d3d3;
+  padding:5px;
+
+}
+
 canvas {
   display: block;
   border: 5px dashed purple;

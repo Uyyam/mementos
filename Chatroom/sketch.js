@@ -1,11 +1,25 @@
 let chatBox;
 let avatar;
+let moveAvatarL;
+let moveAvatarR;
+let dance;
 let imgx;
 let imgy;
 let message = '';
 let lastMessage = '';
 let delay = false;
 let dialogueDelay = false; // Flag to handle delay
+
+
+let speed = 0.1;
+let dx;
+let dy;
+let moving = false;
+let prevX;
+let prevY;
+
+let danceButton;
+
 
 let npc1box =[300, 500, 200, 100];
 let npc2box = [1000, 50, 200, 100];
@@ -19,14 +33,23 @@ let npcDialogueIndex = 0; // Global variable to track dialogue index
 
 function preload(){
   avatar = loadImage("images/me.png");
+  currentAvatar = loadImage("images/me.png");
+  moveAvatarL = loadImage("images/test.gif");
+  moveAvatarR = loadImage("images/temp.gif");
+  dance = loadImage("images/dance.gif");
+
 }
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight-70);
   chatBox = createInput();
   chatBox.position(windowWidth/2, windowHeight*0.95);
   chatBox.size(windowWidth/3);
   chatBox.center('horizontal');
   chatBox.input(draw);
+
+  danceButton = createButton("Dance");
+  danceButton.position(500, windowHeight*0.95);
+  danceButton.mousePressed(playDance);
 
 
   imageMode(CENTER);
@@ -46,7 +69,10 @@ function draw() {
   rect(npc2box[0], npc2box[1], npc2box[2], npc2box[3]);
   rect(npc3box[0], npc3box[1], npc3box[2], npc3box[3]);
 
-  image(avatar,imgx,imgy,  100, 100);
+
+
+
+  image(currentAvatar,imgx,imgy,  100, 100);
 
   text(message,imgx-50,imgy-50);
   if(!delay && message !== '') {
@@ -57,8 +83,26 @@ function draw() {
   }, 5000); // Delay to allow for chat box input
 }
   
-  console.log(imgx, imgy);
+ // console.log(imgx, imgy);
 
+  if (moving) {
+    imgx += dx * speed;
+    imgy += dy * speed;
+    if (dx <0) {
+      if(imgx <= prevX){
+        currentAvatar = avatar;
+      moving = false;
+      console.log("stopped moving");
+      }
+    }
+    if (dx > 0) {
+      if(imgx >= prevX){
+      moving = false;
+      currentAvatar = avatar;
+      console.log("stopped moving");
+      }
+    }
+  }
   
   talkToNPC();
   
@@ -73,10 +117,37 @@ function keyPressed() {
 }
 
 function mousePressed(){
-  if(mouseY < windowHeight * 0.9){
-  imgx= mouseX;
-  imgy = mouseY;
+  console.log(mouseY);
+  if(mouseY < 720 && mouseY > 0){
+    
+    prevX = mouseX;
+    prevY = mouseY;
+    dx = prevX - imgx;
+    dy = prevY - imgy;
+    console.log("dx: " + dx + " dy: " + dy);
+    if(abs(dx) <= 200 || abs(dy) <= 200){
+      speed = 0.08;
+    }
+    if(abs(dx) >= 200 || abs(dy) >= 200){
+      speed = 0.04;
+    }
+    if(abs(dx) >= 500 || abs(dy) >= 500){
+      speed = 0.02;
+    }
+
+    if(mouseX > imgx){
+      currentAvatar = moveAvatarR;
+    }
+    if(mouseX < imgx){
+      currentAvatar = moveAvatarL;
+    }
+    console.log("speed: " + speed);
+    moving = true;
+  
   }
+
+
+  
   console.log(imgx>npc1box[0]&& imgx< (npc1box[0] + npc1box[2]));
   console.log(imgy>npc1box[1] && imgy< npc1box[1] + npc1box[3]);
  
@@ -139,4 +210,13 @@ setTimeout(() => {
     lastMessage = '';
     dialogueDelay = false;
   }
+}
+
+
+function playDance(){
+  currentAvatar = dance;
+  setTimeout(() => {
+    currentAvatar = avatar;
+  }, 1000); // Delay to allow for chat box input
+
 }
